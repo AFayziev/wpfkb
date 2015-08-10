@@ -141,41 +141,5 @@ namespace WpfKb.Controls
             IsKeyboardShown = false;
             base.OnClosed(e);
         }
-
-        private void DragHandle_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            _mouseDownPosition = e.GetPosition(PlacementTarget);
-            _mouseDownOffset = new Point(HorizontalOffset, VerticalOffset);
-        }
-
-        private void DragHandle_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                var delta = e.GetPosition(PlacementTarget) - _mouseDownPosition;
-                if (!IsDragging && delta.Length > DeadZone)
-                {
-                    IsDragging = true;
-                    IsDragHelperAllowedToHide = true;
-                    _isAllowedToFadeValueBeforeDrag = IsAllowedToFade;
-                    IsAllowedToFade = false;
-                    DragHandle.CaptureMouse();
-                }
-
-                if (IsDragging)
-                {
-                    HorizontalOffset = _mouseDownOffset.X + delta.X;
-                    VerticalOffset = _mouseDownOffset.Y + delta.Y;
-                }
-            }
-        }
-
-        private void DragHandle_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            DragHandle.ReleaseMouseCapture();
-            IsDragging = false;
-            IsAllowedToFade = _isAllowedToFadeValueBeforeDrag;
-        }
-
     }
 }
