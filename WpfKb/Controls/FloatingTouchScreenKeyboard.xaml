@@ -19,13 +19,9 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Background="LightGray"
-            Padding="5"
-            CornerRadius="5"
-            >
-            <Controls:OnScreenWebKeyboard
-                AreAnimationsEnabled="{Binding AreAnimationsEnabled}"
-                />
+            Background="Black"
+            Padding="2">
+            <Controls:OnScreenKeyboard AreAnimationsEnabled="{Binding AreAnimationsEnabled}" />
         </Border>
     </Grid>
 </Popup>
