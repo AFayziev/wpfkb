@@ -84,7 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviors\AutoHideBehavior.cs" />
     <Compile Include="Controls\FloatingTouchScreenKeyboard.xaml.cs">
       <DependentUpon>FloatingTouchScreenKeyboard.xaml</DependentUpon>
     </Compile>
